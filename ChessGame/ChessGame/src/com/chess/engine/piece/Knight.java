@@ -25,9 +25,10 @@ public class Knight extends Piece {
         int candidateDestinationCoordinate;
         final List<Move> legalMoves = new ArrayList<>();
 
-        //Normal Comment - Pseudo code
+        //Stefan So Gahts
         /**I dont know Comment*/
-        //TODO Comment/ what we need to do
+        //TODO ASDASD
+
 
 
         for (final int currentCandidateOffset : CANDIDATE_MOVES_COORDINATES) {
