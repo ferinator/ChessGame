@@ -18,9 +18,11 @@ public class Bishop extends Piece {
         super(piecePosition, pieceAlliance);
     }
 
-    //Define Vectors in which a bishop can move
-    //Add Exceptions where they cannot be applied
-    //Loop through the 64 Fields and Add Legal Moves for the Bishop
+    /**
+     * Define Vectors in which a bishop can move
+     * Add Exceptions where they cannot be applied
+     * Loop through the 64 Fields and Add Legal Moves for the Bishop
+     */
 
     //Vectors
     private static final int CANDIDATE_MOVE_VECTOR_COORDINATES[] = {-9, -7, 7, 9};
