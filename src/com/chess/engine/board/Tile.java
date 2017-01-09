@@ -27,13 +27,17 @@ public abstract class Tile {
         for (int i=0; i<BoardUtils.NUM_TILES; i++){
             emptyTileMap.put(i, new EmptyTile(i));
         }
-
         return ImmutableMap.copyOf(emptyTileMap);
     }
 
     //Todo Write this method in a more convinient way (if/else) !
     public static final Tile createTile(final int tileCoordinate, final Piece piece){
         return piece != null ? new OccupiedTile(tileCoordinate, piece) : EMPTY_TILES_CACHE.get(tileCoordinate);
+        /**if(piece != null){
+         return new OccupiedTile(tileCoordinate, piece);
+        } else {
+         return EMPTY_TILES_CACHE.get(tileCoordinate);
+         } */
     }
 
     public static final class EmptyTile extends Tile {

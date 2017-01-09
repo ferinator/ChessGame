@@ -7,6 +7,7 @@ import com.chess.engine.board.Move;
 import com.chess.engine.board.Move.AttackMove;
 import com.chess.engine.board.Tile;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +55,7 @@ public class Knight extends Piece {
                 }
             }
         }
-        return Immutable.copyOf(legalMoves);
+        return ImmutableList.copyOf(legalMoves);
     }
 
     public static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffSet){
