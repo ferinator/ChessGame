@@ -72,4 +72,9 @@ public class Bishop extends Piece {
     public static boolean isEightColumnException(final int currentPosition, final int candidateOffset) {
         return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffset != -7 || candidateOffset != 9);
     }
+
+    @Override
+    public String toString(){
+        return PieceType.BISHOP.toString();
+    }
 }

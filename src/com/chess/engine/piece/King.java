@@ -58,6 +58,10 @@ public class King extends Piece {
 
     public static boolean isEightColumnExclusion(final int currentPosition, final int candidateOffset){
         return BoardUtils.EIGHT_COLUMN[currentPosition] && ((candidateOffset == 9) || (candidateOffset == 1) || (candidateOffset == -7));
+    }
 
+    @Override
+    public String toString(){
+        return PieceType.KING.toString();
     }
 }
