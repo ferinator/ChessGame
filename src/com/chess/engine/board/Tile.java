@@ -16,6 +16,10 @@ public abstract class Tile {
 
     public abstract boolean isTileOccupied();
 
+    public int getTileCoordinate(){
+        return this.tileCoordinate;
+    }
+
     public abstract Piece getPiece();
 
     private static Map<Integer, EmptyTile> EMPTY_TILES_CACHE = createAllPossibleEmptyTiles();
@@ -73,8 +77,12 @@ public abstract class Tile {
 
         @Override
         public String toString(){
-            //Todo write es normal if/else
-            return getPiece().getPieceAlliance().isBlack() ? toString().toLowerCase() : getPiece().toString();
+            /** if(getPiece().getPieceAlliance().isBlack()) {
+             * return getPiece().toString().toLowerCase();
+             * }else{
+             * return getPiece().toString() }}
+             */
+            return getPiece().getPieceAlliance().isBlack() ? getPiece().toString().toLowerCase() : getPiece().toString();
         }
 
         @Override

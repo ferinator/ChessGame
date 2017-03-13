@@ -17,7 +17,7 @@ public class Rook extends Piece {
     private final static int[] CANDIDATE_MOVE_COORDINATES = {-8, -1, 1, 8};
 
     public Rook(int piecePosition, Alliance pieceAlliance) {
-        super(piecePosition, pieceAlliance);
+        super(PieceType.ROOK, piecePosition, pieceAlliance);
     }
 
     /**First I will create List with possible/legal moves for the piece
@@ -59,7 +59,7 @@ public class Rook extends Piece {
                         final Alliance pieceAlliance = pieceAtDestination.getPieceAlliance();
 
                         if(pieceAlliance != pieceAlliance){
-                            legalMoves.add(new Move.AttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
+                            legalMoves.add(new Move.MajorMove.AttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
                         }
                         break;
                     }
@@ -75,6 +75,11 @@ public class Rook extends Piece {
 
     public static boolean isEightColumnException(final int currentPosition, final int candidateOffSet){
         return BoardUtils.EIGHT_COLUMN[currentPosition] && (candidateOffSet != 1);
+    }
+
+    @Override
+    public Rook movePiece(final Move move) {
+        return new Rook(move.getDestinationCoordinate(), move.getMovedPiece().getPieceAlliance());
     }
 
     @Override

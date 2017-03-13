@@ -16,7 +16,7 @@ public class Queen extends Piece {
 
 
     public Queen(int piecePosition, Alliance pieceAlliance) {
-        super(piecePosition, pieceAlliance);
+        super(PieceType.QUEEN, piecePosition, pieceAlliance);
     }
 
     public static final int[] CANDIDATE_MOVE_COORDINATES = {-9,-8,-7,-1,1,7,8,9};
@@ -53,7 +53,7 @@ public class Queen extends Piece {
                             final Alliance pieceAlliance = getPieceAlliance();
 
                             if(pieceAlliance != pieceAlliance){
-                                legalMoves.add(new Move.AttackMove(board, this, candidateDestinationCoordianate, pieceAtDestination));
+                                legalMoves.add(new Move.MajorMove.AttackMove(board, this, candidateDestinationCoordianate, pieceAtDestination));
 
                             }
                             break;
@@ -71,6 +71,11 @@ public class Queen extends Piece {
 
     public boolean eightColumnException(final int currentPostion, final int candidateOffset){
         return BoardUtils.EIGHT_COLUMN[currentPostion] && (candidateOffset == 1 || candidateOffset == 9 || candidateOffset == -7);
+    }
+
+    @Override
+    public Queen movePiece(final Move move) {
+        return new Queen(move.getDestinationCoordinate(), move.getMovedPiece().getPieceAlliance());
     }
 
     @Override
